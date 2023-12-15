@@ -1,0 +1,7 @@
+start: (msgname | msgid | member)+
+msgname: "name" WORD
+msgid: "id" NUMBER
+member: type WORD
+type: "float"|"int"|"bool"
+%import common ( INT, WORD, LETTER, NUMBER, ESCAPED_STRING, WS)
+%ignore WS
