@@ -1,7 +1,13 @@
-start: (msgname | msgid | member)+
-msgname: "name" WORD
-msgid: "id" NUMBER
-member: type WORD
-type: "float"|"int"|"bool"
+start: (msgname msgid members+)
+msgname: "name" MSG_NAME
+msgid: "id" MSG_ID
+members: member+
+member: (DATATYPE MEMBER_NAME)
+
+DATATYPE: "float"|"int"|"bool"
+MSG_NAME: WORD
+MEMBER_NAME: WORD
+MSG_ID: INT
+
 %import common ( INT, WORD, LETTER, NUMBER, ESCAPED_STRING, WS)
 %ignore WS

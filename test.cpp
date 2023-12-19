@@ -1,7 +1,9 @@
 /*[[[cog
 import cog
-for table in ['customers', 'orders', 'suppliers']:
-    cog.outl("Drop table %s;" % table)
+from larktest import MsgPrototype, do_parse
+from lark import Lark, tree
+
+cog.outl(do_parse())
 ]]]*/
 
 /*[[[end]]]
