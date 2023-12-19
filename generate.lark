@@ -1,0 +1,24 @@
+start: structure
+structure: (declaration constructor id_def members end)
+declaration: ("struct" MSG_NAME "{")
+constructor: (MSG_NAME "(const Packet&);")
+id_def: ("int id=" MSG_ID ";")
+members: (DATATYPE MEMBER_NAME ";")+
+end: "};"
+
+DATATYPE: "float"|"int"|"bool"
+MEMBER_NAME: WORD
+MSG_ID: INT
+MSG_NAME: WORD
+
+%import common ( INT, WORD, LETTER, NUMBER, ESCAPED_STRING, WS)
+%ignore WS
+// %import MSG_NAME MSG_ID DATATYPE MEMBER_NAME
+
+// struct MSG_NAME {
+// 	MSG_NAME(const Packet&);
+
+// 	int id; //MSG_ID
+// 	float field_1; //member
+// 	float field_2; //member
+// };
